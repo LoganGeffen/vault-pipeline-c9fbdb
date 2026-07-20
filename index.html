@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="ssc-artifact-revision" content="current-platform-11-modules-2026-07-20">
+  <meta name="ssc-artifact-revision" content="current-platform-11-modules-2026-07-20-r2">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%231f7a54'/%3E%3C/svg%3E">
   <title>The Vault — how a science module runs</title>
   <style>
@@ -77,15 +77,15 @@
   <header>
     <div class="eyebrow">Standard Seed Vault · engineering architecture</div>
     <h1>How a science module runs</h1>
-    <p class="lead">One generic runner takes a manifest-declared value or private file, executes the module in a pinned Python or container runtime, and returns exactly one small result through an organization-scoped, short-lived signed download.</p>
-    <div class="stamp">Current platform · eleven enabled modules · refreshed 2026-07-20 · marker current-platform-11-modules-2026-07-20</div>
+    <p class="lead">One generic runner takes a manifest-declared value or private file, executes the module in a manifest-declared Python major/minor or a module-local container build, and returns one small result after an organization-membership check via a 60-second signed URL.</p>
+    <div class="stamp">Current platform · eleven enabled modules · refreshed 2026-07-20 · marker current-platform-11-modules-2026-07-20-r2</div>
     <nav>
       <a href="#truth">A · Three truths</a>
       <a href="#flow">B · Member flow</a>
       <a href="#modules">C · Modules</a>
       <a href="#contract">D · Contract</a>
       <a href="#guard">E · Enforcement</a>
-      <a href="#protox">F · ProTox exception</a>
+      <a href="#protox">F · ProTox container-egress exception</a>
       <a href="#limits">G · What proof means</a>
     </nav>
   </header>
@@ -107,7 +107,7 @@
       </div>
       <div class="card truth lv">
         <h4>Lovable — editor and publication</h4>
-        <p>Holds frontend editor and published-site state. Pushed commits sync into the <em>editor</em>; they do not publish production.</p>
+        <p>Holds frontend editor and published-site state. Commits pushed to the Lovable-connected branch sync into the <em>editor</em>; they do not publish production.</p>
         <p>Publication is an explicit, separately authorized action. A merged frontend change does not prove the live site was published.</p>
       </div>
     </div>
@@ -129,8 +129,8 @@
       <div class="step"><b>1 · Browser</b><span>Member submits one value (JSON) or one file (multipart) for a chosen module.</span></div>
       <div class="step"><b>2 · submit-job</b><span>Verifies the login token, resolves the org, checks entitlement and quota, mints the job ticket, stages any file privately.</span></div>
       <div class="step gh"><b>3 · run-module</b><span>Dispatched workflow resolves the declared runtime, materializes the input, and executes the module wrapper.</span></div>
-      <div class="step gh"><b>4 · job-callback</b><span>Runner reports status with a shared secret; the single result is stored in private Storage and the staged input is cleaned up.</span></div>
-      <div class="step done"><b>5 · get-result</b><span>Member re-authenticates, membership is rechecked, and a 60-second signed URL is returned.</span></div>
+      <div class="step gh"><b>4 · job-callback</b><span>Runner reports status with a shared secret; the single result is stored in private Storage and the callback attempts staged-input cleanup.</span></div>
+      <div class="step done"><b>5 · get-result</b><span>The login token is reverified, membership is rechecked, and a 60-second signed URL is returned.</span></div>
     </div>
 
     <div class="diagram">
@@ -179,20 +179,20 @@
           <g fill="#59645c" font-size="11.5">
             <text x="282" y="106">auth · org · entitlement · quota · ticket · stage file</text>
             <text x="479" y="176">resolve runtime · write inputs.json · run wrapper</text>
-            <text x="681" y="272">staged input deleted on terminal status</text>
+            <text x="681" y="272">staged-input cleanup attempted on terminal status</text>
           </g>
         </g>
       </svg>
     </div>
 
     <div class="note">
-      <strong>The ticket exists before anything else can go wrong.</strong> <code>submit-job</code> creates the job row <em>before</em> staging files or dispatching, so there is never a GitHub run without a matching row. If the dispatch is definitively rejected the ticket is failed immediately; if delivery is merely <em>uncertain</em> — a 5xx or a timeout — the row is deliberately left queued for the runner callback or the reaper, because the system must never report "failed" for a job that may in fact be running.
+      <strong>The ticket exists before file staging or dispatch can go wrong.</strong> <code>submit-job</code> creates the job row <em>before</em> staging files or dispatching, so there is never a GitHub run without a matching row. Earlier stages can still fail with no row at all: token verification, request parsing, module and input validation, organization resolution, tier entitlement, and the quota reservation all reject before the ticket is minted. If the dispatch is definitively rejected the ticket is failed immediately; if delivery is merely <em>uncertain</em> — a 5xx or a timeout — the row is deliberately left queued for the runner callback or the reaper, because the system must never report "failed" for a job that may in fact be running.
     </div>
   </section>
 
   <section id="modules">
     <h2><span class="n">C</span>Eleven modules, two runtimes</h2>
-    <p class="cap">Eleven modules are currently enabled and visible in the app. Six run on a pinned Python version directly on the runner; five build and run a container image. <strong>The runtime is a manifest choice, not a per-module code path</strong> — one workflow resolves and executes both.</p>
+    <p class="cap">Eleven modules are currently enabled and visible in the app. Six run on a manifest-declared Python major/minor directly on the runner; five build and run a module-local container image. <strong>The runtime is a manifest choice</strong> — the shared workflow resolves both runtime kinds, and ProTox-3 alone additionally uses the explicit sandbox branch described in section F.</p>
 
     <div class="tablewrap">
       <table>
@@ -238,13 +238,14 @@
       </div>
       <div class="card">
         <h4>Dependency boundary</h4>
-        <p>Python modules may use the standard library, code committed with the module, and <strong>exact <code>package==version</code> pins</strong> from their own <code>requirements.txt</code>. Ranges, URLs, editable installs, and environment markers are outside the contract.</p>
+        <p>Python modules may use the standard library, code committed with the module, and <strong>exact <code>package==version</code> pins</strong> from their own <code>requirements.txt</code>. Ranges, URLs, editable installs, and environment markers are outside the contract. The interpreter itself is only declared to major/minor, so the patch release can float; container base tags are pinned by digest in some module Dockerfiles and left mutable in others.</p>
         <p>Modules must not rely on whatever happens to be preinstalled on the runner. Container modules may additionally install their environment in a secretless Dockerfile build.</p>
       </div>
       <div class="card">
-        <h4>Sandbox</h4>
-        <p>Containers run as the host user with <code>--network none</code>, all Linux capabilities dropped, <code>no-new-privileges</code>, a 256-process limit, and a read-only root filesystem. <code>/tmp</code> is a bounded 64 MB <code>noexec,nosuid</code> tmpfs.</p>
+        <h4>Standard container sandbox</h4>
+        <p>Standard containers run as the host user with <code>--network none</code>, all Linux capabilities dropped, <code>no-new-privileges</code>, a 256-process limit, and a read-only root filesystem. <code>/tmp</code> is a bounded 64 MB <code>noexec,nosuid</code> tmpfs.</p>
         <p><code>/job/inputs.json</code> and <code>/job/input</code> are mounted read-only; <code>/job/output</code> is the only writable persistent mount.</p>
+        <p><strong>This card describes standard containers only.</strong> ProTox-3 runs on its own internal broker network rather than <code>--network none</code>, with a 512 MB tmpfs. Python modules are <em>not</em> container-isolated at all — they execute directly on the hosted runner, and NetInfer uses ordinary host outbound network access to public structure and target databases.</p>
         <p>A module cannot request network access or extra permissions through its manifest. That would require a separately reviewed platform exception.</p>
       </div>
     </div>
@@ -278,6 +279,7 @@
 
     <h3>3 · Billing-period submission quota</h3>
     <p class="cap">Before the ticket is minted, a single atomic database reservation both counts the submission against the organization's current billing period and returns the job id. Exhausting the quota returns a <code>429</code> carrying the used count, the limit, and the reset time. If billing state shifted underneath the request, it returns a <code>409</code> asking the caller to refresh rather than guessing.</p>
+    <p class="cap"><strong>Metering counts submissions, not successes.</strong> Every accepted paid submission reserves one run against the period. Only a pre-start infrastructure failure — a job marked <code>failed</code> with stage <code>infra</code> that never recorded a <code>started_at</code> — is later excluded from the count. A job still queued because delivery was uncertain, an infrastructure failure that had already started, and a science failure all keep counting against quota.</p>
 
     <div class="tablewrap">
       <table>
@@ -295,19 +297,19 @@
     </div>
 
     <h3>Getting the result back</h3>
-    <p class="cap">Results live in a private bucket. <code>get-result</code> is the only read path and is fail-closed: it re-verifies the login token, re-checks that the caller belongs to the job's organization, and returns a <strong>60-second signed URL</strong> only for a job that actually succeeded. A job that is not yours and a job that does not exist return the identical response, so the endpoint cannot be used to discover other organizations' jobs.</p>
+    <p class="cap">Results live in a private bucket. <code>get-result</code> is the only read path and is fail-closed: it reverifies the login token — it does not force an interactive login — re-checks that the caller belongs to the job's organization, and returns a <strong>60-second signed URL</strong> only for a job that actually succeeded. Organization membership scopes <em>issuance</em> of that URL; the URL itself is then a <strong>bearer capability</strong>, so anyone holding it within its 60-second lifetime can fetch the object. A job that is not yours and a job that does not exist return the identical response, so the endpoint cannot be used to discover other organizations' jobs.</p>
   </section>
 
   <section id="protox">
-    <h2><span class="n">F</span>ProTox-3 — the one egress exception</h2>
-    <p class="cap">Every other container runs fully offline. ProTox-3 is the single platform-owned exception, and it is worth understanding precisely because it shows where the architecture's boundaries actually sit.</p>
+    <h2><span class="n">F</span>ProTox-3 — the one container-egress exception</h2>
+    <p class="cap">Every other <em>container</em> runs fully offline. ProTox-3 is the single platform-owned exception to that offline-container rule. It is not the platform's only outbound network consumer — Python modules run uncontainerized on the runner and NetInfer reaches public databases directly — but it is the one container granted egress, and it is worth understanding precisely because it shows where the architecture's boundaries actually sit.</p>
 
     <div class="grid">
       <div class="card">
         <h4>How the exception is built</h4>
         <p>ProTox-3 does not get general network access. It runs behind an isolated broker that permits exactly one destination: <strong><code>tox.charite.de:443</code></strong>. Everything else is refused.</p>
         <p>That permission is expressed in the platform's own workflow branch — deliberately <em>not</em> in the module manifest, because manifests cannot declare network policy.</p>
-        <p>The module drives a headless browser against the provider's page, parses the resulting tables, and writes one CSV. Browser assets used by that page are checksum-pinned in the image.</p>
+        <p>The module drives a headless browser against the provider's page, parses the resulting tables, and writes one CSV. Exactly <strong>six named third-party scripts</strong> — jQuery, DataTables, three DataTables Buttons bundles, and JSZip — are checksum-pinned at image build and served locally. That is not all browser assets: the provider's own page and its same-host assets are still fetched live as external content.</p>
       </div>
       <div class="card">
         <h4>What it is not</h4>
@@ -324,7 +326,8 @@
     <h3>Known fragilities, stated plainly</h3>
     <ul>
       <li><strong>DOM coupling.</strong> The integration drives the provider's page structure, so a provider redesign can break it even while the public site still works for people.</li>
-      <li><strong>Completeness is not guaranteed.</strong> The provider currently documents more prediction endpoints than the last authorized run returned. The runner preserves the rows it finds; row count is not a stable completeness guarantee.</li>
+      <li><strong>Completeness is all-or-nothing per compound.</strong> A successful compound must produce exactly <strong>45 unique rows</strong>. If the export is short, or carries duplicate logical rows, the partial export is discarded entirely and that compound is written as a single failed row instead. There is no partial per-compound result.</li>
+      <li><strong>45 rows is not proof of coverage.</strong> Hitting the expected count confirms the provider returned the model set the integration was built against; it does not establish that every prediction endpoint the provider currently documents was covered.</li>
       <li><strong>Partial batches succeed.</strong> If at least one compound succeeds the job returns success, preserving the failure disclosure. Consumers must inspect the per-row status and error code rather than treating job success as full-batch success.</li>
       <li><strong>No recurring live check.</strong> CI builds and contract-tests the container but does not perform a recurring live-provider prediction, so provider drift can appear between authorized probes.</li>
       <li><strong>Validation is structural.</strong> Input checking covers CSV shape and bounds; it does not locally establish that a SMILES string is chemically valid before disclosing it to the provider.</li>
@@ -338,7 +341,7 @@
     <div class="grid">
       <div class="card">
         <h4>An execution receipt proves</h4>
-        <p>That the pipeline ran end to end at that moment: the input was accepted and staged, the declared runtime was prepared, the wrapper executed, the output matched the declared contract, the callback stored it, the signed download worked, and staged input was cleaned up.</p>
+        <p>That the pipeline ran end to end at that moment: the input was accepted and — only for file inputs — privately staged, the declared runtime was prepared, the wrapper executed, the output matched the declared contract, the callback stored it, the signed download worked, and the callback attempted staged-input cleanup. Value inputs are never staged in private Storage.</p>
       </div>
       <div class="card">
         <h4>It does not prove</h4>
@@ -364,7 +367,7 @@
   <footer>
     Standard Seed Vault · engineering architecture walkthrough<br>
     Grounded in canonical SSC main e0222bb4b6ec705d5a8a276db44313ab048333a6 · refreshed 2026-07-20<br>
-    marker current-platform-11-modules-2026-07-20<br>
+    marker current-platform-11-modules-2026-07-20-r2<br>
     Architecture reference only. Not a status dashboard, and not a scientific validation record.
   </footer>
 
