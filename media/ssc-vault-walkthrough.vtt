@@ -1,251 +1,161 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:13.200
-Start with the diagram as your home tab
-The Vault module pipeline page is the home reference. Green links open live services; blue paths open pinned source. This recording follows two real jobs through those boundaries.
+00:00:00.000 --> 00:00:08.667
+Start from the SSC Vault diagram
+Keep this HTML page as the home tab. Green links open live services; blue paths open source. We will return to the map at each handoff.
 
 2
-00:00:13.200 --> 00:00:26.533
-Follow the map into the signed-in Vault
-Open the live Vault from the implementation map. The Skill Catalog is the current starting point for choosing a module; completed jobs appear under Runs.
+00:00:08.667 --> 00:00:18.267
+Use the C4 diagram to follow the request
+The browser submits a job to Supabase. GitHub runs the module, and the callback stores its result. Start at the browser box and follow Open Vault.
 
 3
-00:00:26.533 --> 00:00:35.133
-Choose a module from its live contract
-The Skill Catalog reads the module registry. This example uses Aqueous Solubility Prediction, a Python module with one SMILES input.
+00:00:18.267 --> 00:00:42.333
+Open the Vault from the browser box
+Follow the green Open Vault link inside the diagram. This opens the live job board in a new tab; the diagram stays available on the left.
 
 4
-00:00:35.133 --> 00:00:43.067
-Select the skill, then find its input
-The selected skill opens its input form below the catalog. We will submit one SMILES value through the Python path.
+00:00:42.333 --> 00:01:01.400
+Choose FastSolv and scroll to its input
+Open Skill Catalog, select Aqueous Solubility Prediction, then scroll below the cards to its form. This value-input example runs through the shared Python path.
 
 5
-00:00:43.067 --> 00:00:52.400
-Submit a recognizable input
-We use the SMILES CCO as a small demonstration input. Admission checks the member, module contract, subscription and remaining quota.
+00:01:01.400 --> 00:01:25.200
+Submit one value and watch the job appear
+Run sends CCO to the shared admission endpoint. The Runs board shows the new job while GitHub works asynchronously; it will return a CSV result.
 
 6
-00:00:52.400 --> 00:01:00.600
-Run the selected module
-The submit endpoint returns a job ID after admission and dispatch. We will follow that same job through GitHub and its stored output.
+00:01:25.200 --> 00:02:14.333
+Return to the map: admission and dispatch
+The submit-job source is in the Run admission box. It checks the organization subscription and module entitlement before reserving quota and creating a job.
 
 7
-00:01:00.600 --> 00:01:11.467
-The job appears in the organization board
-The submission returned 202 and a job ID. The organization job board follows queued and running jobs; execution happens outside the browser.
+00:02:14.333 --> 00:02:27.867
+Reserve quota and the queued job together
+This reservation uses one generated job ID. Retrying the reservation reuses that ID, avoiding a second quota reservation after an ambiguous response.
 
 8
-00:01:11.467 --> 00:01:36.333
-Admission is a backend decision
-The tracked submit-job source explains membership, module validation and entitlement checks before dispatch. This is source evidence, not a deployment comparison.
+00:02:27.867 --> 00:03:25.133
+Follow the map into GitHub Actions
+Return to the diagram and enlarge the component labels. Open execution runs from the GitHub runner box, then select the run matching our newly submitted job.
 
 9
-00:01:36.333 --> 00:01:52.800
-Check access before creating a job
-For paid modules, submit-job resolves the organization subscription and checks access. Admission can reject the request before a job row is created.
+00:03:25.133 --> 00:04:14.467
+Open the runner source from the same box
+The blue run-module.yml link opens the shared workflow. After staging the input, it runs the module helper, validates the declared output, and reports success through the callback.
 
 10
-00:01:52.800 --> 00:02:09.000
-Reserve quota and the job together
-The billing reservation RPC uses one generated job ID. A retry reuses that ID, avoiding a second quota reservation after an ambiguous response.
+00:04:14.467 --> 00:05:13.933
+Follow the module package to its Python entrypoint
+The modules/ link leads to the scientific package. FastSolv calls run_predictions; its entrypoint writes the CSV that the shared runner delivers.
 
 11
-00:02:09.000 --> 00:02:30.067
-Follow the map to the execution service
-Return to the diagram and follow Open execution runs. Match the job ID from this submission to its GitHub Actions run.
+00:05:13.933 --> 00:05:26.067
+Write the file promised by the module contract
+FastSolv writes output/solubility_predictions.csv. The shared runner checks that declared output, then passes its bytes to the callback.
 
 12
-00:02:30.067 --> 00:02:52.867
-Match the job ID to its workflow run
-GitHub labels the run with the Vault job ID. Open that run and its job to see the actual execution steps.
+00:05:26.067 --> 00:06:16.600
+Return to the map for the file-input path
+Open Vault from the diagram again. Molecular Structure Recognition uses DECIMER: upload a chemical structure image instead of typing a value.
 
 13
-00:02:52.867 --> 00:03:04.333
-Here is the code orchestrating this run
-The shared workflow resolves the manifest, prepares Python or Docker, runs the module, validates its output, and reports through the callback.
+00:06:16.600 --> 00:06:38.800
+Submit the image through the same job interface
+Attach caffeine.png and click Run. The file-input branch creates a job, stages the private input, then dispatches the same GitHub workflow with the selected module.
 
 14
-00:03:04.333 --> 00:03:19.467
-Run the module, then report its result
-The workflow runs the shared helper, validates the declared output, then calls report succeeded. The module itself does not write job state or Storage.
+00:06:38.800 --> 00:07:31.600
+The file is staged after admission
+Back in the Run admission box, open submit-job. After admission succeeds, it uploads the input under the job ID in private job-inputs storage before dispatching the runner.
 
 15
-00:03:19.467 --> 00:03:53.333
-The module produces the data file
-The shared runner delegates scientific work to the selected module package. Open the FastSolv entrypoint to see how its prediction becomes a CSV.
+00:07:31.600 --> 00:08:24.400
+The manifest selects the container and output
+From the module-package box, open DECIMER’s manifest. It declares a file input, the Dockerfile runtime, and output/smiles_result.csv; the shared runner follows this contract.
 
 16
-00:03:53.333 --> 00:04:11.467
-Run the scientific prediction
-The FastSolv entrypoint calls run_predictions and reads logS plus its ensemble standard deviation from the returned dataframe.
+00:08:24.400 --> 00:08:35.800
+The manifest names the returned CSV
+The input accepts a PNG or JPEG image. The declared output is output/smiles_result.csv, which the runner validates before reporting success.
 
 17
-00:04:11.467 --> 00:04:27.733
-Write the declared output file
-The module writes output/solubility_predictions.csv. The shared runner validates this declared file and sends its bytes through the callback.
+00:08:35.800 --> 00:09:29.200
+Return through the callback box
+Open job-callback/core.ts from the map. The callback uploads a private result under a unique attempt path, then records success with the result reference.
 
 18
-00:04:27.733 --> 00:04:51.200
-Return through the callback
-The runner reports status and output to job-callback. The callback owns the database transition and private result upload.
+00:09:29.200 --> 00:10:08.933
+Follow the result into Supabase
+Use Open database in the Supabase box, then open SQL Editor. We will read only the two demonstration jobs and their status and result-file fields.
 
 19
-00:04:51.200 --> 00:05:10.000
-Upload first, then mark success
-The callback creates a unique attempt path, uploads the output, and stores job-results plus that path as result_ref. The successful database update makes the result visible to the job board.
+00:10:08.933 --> 00:10:27.733
+Match both jobs to their stored results
+The same job IDs appear here with succeeded status. Both result references point to the private job-results bucket, with the filenames declared by their modules.
 
 20
-00:05:10.000 --> 00:05:35.533
-Authorize the return path
-The result endpoint checks who is requesting the file and whether the job belongs to that member organization.
+00:10:27.733 --> 00:11:08.933
+Open the private results bucket from the map
+Follow Open Storage in the Supabase box, then open job-results. Results are organized by job ID and upload attempt; the bucket remains private.
 
 21
-00:05:35.533 --> 00:05:52.000
-A successful job still requires membership
-get-result verifies the caller and checks organization membership. Missing membership and missing jobs return the same response.
+00:11:08.933 --> 00:11:40.600
+Open the job’s private output folder
+Use Navigate to open the folder named for the DECIMER job. Inside its upload attempt is smiles_result.csv, the durable file referenced by the completed job.
 
 22
-00:05:52.000 --> 00:06:10.267
-Sign the exact private result for 60 seconds
-The stored result_ref identifies the bucket and object. After authorization, get-result issues a 60-second signed URL for the browser to follow.
+00:11:40.600 --> 00:12:28.533
+Return to the map for result retrieval
+The get-result source lives in the callback and result-delivery box. It checks the caller’s organization membership before allowing a successful job’s file to be downloaded.
 
 23
-00:06:10.267 --> 00:06:19.267
-Return to the completed job
-FastSolv has completed in GitHub and the database marks the same job succeeded. Return to its row in the Vault to request the result.
+00:12:28.533 --> 00:12:41.200
+Issue a short-lived link to the private object
+After authorization, get-result reads the stored bucket and path and creates a signed URL valid for 60 seconds. The browser uses that URL to retrieve the exact result file.
 
 24
-00:06:19.267 --> 00:06:27.533
-Open the live result view
-The current Vault presents a Visualize action for completed jobs. Open the Aqueous Solubility result submitted today at 2:43 PM.
+00:12:41.200 --> 00:13:34.133
+The browser follows the job lifecycle
+The pinned runs-page source polls every five seconds while jobs are active. The current live Vault has a newer Skill Catalog and visualization UI; this excerpt explains the older tracked polling contract.
 
 25
-00:06:27.533 --> 00:06:34.000
-The returned prediction is visible
-For CCO in water at 298.15 K, this run returned log S 0.3677 with ensemble standard deviation 0.2080. These are model predictions, shown from the returned data file.
+00:13:34.133 --> 00:14:16.733
+Return from the map to the completed value job
+Open Vault from the browser box again. The new FastSolv run has succeeded; Visualize opens the returned solubility data for the same demonstration.
 
 26
-00:06:34.000 --> 00:06:40.133
-Inspect the actual returned CSV
-The Raw tab exposes the returned file behind the visualization. This connects the module output to what the member sees.
+00:14:16.733 --> 00:14:37.333
+Inspect Raw, then request a fresh download
+Raw shows the CSV behind the visualization. Close the dialog and use Download on the Runs board for a fresh authorized link; dialog links expire after 60 seconds.
 
 27
-00:06:40.133 --> 00:06:55.667
-Choose the Docker and file-input path
-Select Molecular Structure Recognition, then find its upload form below the catalog. The same job contract supports this different runtime and input kind.
+00:14:37.333 --> 00:14:55.333
+Compare the completed image result
+The image job returns smiles_result.csv. Raw shows the predicted SMILES string and its length; this is the same file located in private Storage.
 
 28
-00:06:55.667 --> 00:07:03.667
-Attach the structure image
-The file input uses the same submission endpoint as the SMILES example. Here the input is a caffeine structure image.
+00:14:55.333 --> 00:15:09.933
+Download the second declared output
+Use the same fresh-link download path for the image job. Both demonstrations completed execution and file delivery; this does not independently validate their scientific models.
 
 29
-00:07:03.667 --> 00:07:10.133
-Submit the file-input job
-The server stages the image in private Storage and dispatches the shared workflow with the new job ID.
+00:15:09.933 --> 00:16:08.867
+Check the completed container workflow
+Return to Open execution runs on the map and open the DECIMER job. The completed steps show file input preparation, module execution, output validation and the success callback.
 
 30
-00:07:10.133 --> 00:07:26.467
-Stage a file only after admission
-File inputs are stored under the job ID in job-inputs. A staging failure marks the queued job failed before dispatch.
+00:16:08.867 --> 00:16:54.533
+Read the complete request sequence
+Back on the HTML page, follow admission into asynchronous execution. The browser polls while the runner works; the callback stores the result, and authorized retrieval closes the loop.
 
 31
-00:07:26.467 --> 00:07:47.000
-The file path selects a container runtime
-DECIMER declares a container runtime, one image input and one CSV output. The same runner and callback contract surround the scientific package.
+00:16:54.533 --> 00:17:12.933
+Keep the organization and job records connected
+The data model ties membership, the module registry and jobs to the organization. Quota admission counts jobs in the billing period and revalidates subscription state before inserting a queued job.
 
 32
-00:07:47.000 --> 00:08:02.800
-One manifest describes input, runtime and output
-DECIMER uses Dockerfile, accepts one required PNG or JPEG image, and declares output/smiles_result.csv. The registry and runner use this contract.
-
-33
-00:08:02.800 --> 00:08:32.333
-The image job uses the same workflow
-This second job exercises the container and file-input branches. Match its job ID in GitHub Actions and inspect the completed steps.
-
-34
-00:08:32.333 --> 00:08:43.200
-The file and container branches completed
-This DECIMER run prepared its container runtime, retrieved the staged image, executed the module, validated the output and reported success.
-
-35
-00:08:43.200 --> 00:08:54.267
-Compare both completed jobs
-The two job IDs now converge on the same status and private result contract, despite their different input types and runtimes.
-
-36
-00:08:54.267 --> 00:09:02.800
-Both jobs have private result files
-FastSolv and DECIMER both succeeded. Each row points to its declared CSV in job-results; the job ID ties that file back to its submission and workflow.
-
-37
-00:09:02.800 --> 00:09:24.667
-Follow the reference into private Storage
-The database stores a result reference; the bytes live in the private job-results bucket. Open the bucket from the diagram to inspect our file job.
-
-38
-00:09:24.667 --> 00:09:33.400
-Locate the job folder
-Filter the private result bucket by the DECIMER job ID. Each attempt keeps its declared filename under the job folder.
-
-39
-00:09:33.400 --> 00:09:40.400
-The result is stored under the job ID
-Open the demonstration job folder and its attempt folder to find smiles_result.csv. This is the file referenced by the succeeded database row.
-
-40
-00:09:40.400 --> 00:09:58.200
-Open the stored result attempt
-The callback uses a separate attempt directory before marking the job succeeded. Its CSV is the private file referenced by the database.
-
-41
-00:09:58.200 --> 00:10:22.267
-Return the image result to the member
-The DECIMER job succeeded and its private CSV is present. Return to Vault, refresh the Runs page, and open this completed image result.
-
-42
-00:10:22.267 --> 00:10:30.733
-Inspect the image-to-SMILES output
-The Raw tab shows the actual DECIMER CSV. Successful execution proves the output contract; it does not independently validate the scientific prediction.
-
-43
-00:10:30.733 --> 00:10:39.133
-Download the returned CSV
-Download the same smiles_result.csv returned by the image job. The browser uses the authorized result path already traced through get-result and private Storage.
-
-44
-00:10:39.133 --> 00:10:50.133
-Use the diagram to retrace the flow
-The two examples share admission, job state, callback storage and authorized retrieval. Return to the diagram to review those boundaries.
-
-45
-00:10:50.133 --> 00:10:59.333
-The request and execution overlap
-The request sequence separates admission from asynchronous execution. Browser polling overlaps the runner; file jobs add private input staging and retrieval.
-
-46
-00:10:59.333 --> 00:11:14.800
-The durable records connect the services
-The data model connects members and organizations to jobs, module contracts and private result objects. jobs.module is a validated slug, and result_ref identifies the exact output object.
-
-47
-00:11:14.800 --> 00:11:27.333
-Billing and module release feed admission
-Stripe webhooks update stored subscription state; admission reads it. Module release projects manifests into the registry. Those supporting paths are distinct from deploying frontend code, SQL or Edge Functions.
-
-48
-00:11:27.333 --> 00:11:40.400
-One loop, two demonstrated runtimes
-The big picture is the same for Python and Docker: admit the job, execute its package, store the callback result, and authorize the member download. Both demonstrations completed successfully.
-
-49
-00:11:40.400 --> 00:11:53.067
-Keep the entire loop in view
-Vault admits and dispatches; GitHub executes; the callback writes private data; the member retrieves the result. The implementation map adds the service and source links for each boundary.
-
-50
-00:11:53.067 --> 00:11:59.533
-Scope of the demonstration
-FastSolv and DECIMER verified the shared execution and delivery path. ProTox is the documented external-service exception and was not run here. Successful output delivery does not independently establish scientific validity.
+00:17:12.933 --> 00:17:35.600
+The same loop, at a simpler level
+A member clicks Run; Vault admits the job and dispatches GitHub. The module produces output, the callback stores it, and the browser retrieves it. Use the diagram links to retrace any handoff.
