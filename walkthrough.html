@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Follow SSC Vault jobs through admission, GitHub execution, private Storage and authorized result download." name="description"/>
+<title>SSC Vault walkthrough</title>
+<link href="navigation.css" rel="stylesheet"/>
+<style>
+  * { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body { margin: 0; background: #fff; color: #222528; font: 1rem/1.6 -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  main { max-width: 1120px; margin: auto; padding: clamp(2.4rem, 5vw, 4.5rem) 1.5rem 5rem; }
+  .doc-label { font: .74rem/1.6 "SF Mono", "Cascadia Code", Consolas, monospace; letter-spacing: .04em; color: #454b54; margin: 0 0 .7rem; }
+  h1 { font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15; letter-spacing: -.01em; margin: 0 0 .7rem; }
+  p { margin: 0 0 1rem; }
+  .intro { color: #454b54; max-width: 76ch; }
+  .meta, .help { color: #6d7480; font-size: .88rem; }
+  a { color: #2f4d73; text-underline-offset: .18em; }
+  a:focus-visible { outline: 3px solid #d79a2e; outline-offset: 3px; }
+  video { display: block; width: 100%; aspect-ratio: 240 / 169; max-height: 80vh; background: #111827; border-radius: 6px; scroll-margin-top: 1rem; }
+  .video-links { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; margin: .75rem 0 2rem; font-size: .88rem; }
+  h2 { font-size: 1.15rem; margin: 2rem 0 .4rem; }
+  .chapters { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; }
+  .chapters li { border-top: 1px solid #e4e5e8; }
+  .chapters a { display: flex; align-items: baseline; gap: .8rem; min-height: 3.1rem; padding: .75rem .6rem; text-decoration: none; border-radius: 4px; line-height: 1.45; }
+  .chapters a:hover, .chapters a[aria-current="true"] { background: #edf3f8; }
+  .chapters a[aria-current="true"] { box-shadow: inset 3px 0 #2f4d73; }
+  .chapters time { flex: 0 0 3.3rem; font: .88rem/1.45 "SF Mono", "Cascadia Code", Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .chapters span { color: #222528; }
+  footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #e4e5e8; font-size: .82rem; color: #6d7480; }
+  @media (max-width: 640px) { .chapters { grid-template-columns: 1fr; } main { padding-left: 1rem; padding-right: 1rem; } }
+</style>
+</head>
+<body>
+<main>
+<p class="doc-label">Standard Seed Corporation · Vault walkthrough</p>
+<nav aria-label="SSC Vault reference" class="page-tabs">
+<a href="./">Flow diagram</a>
+<a aria-current="page" href="walkthrough.html">Walkthrough</a>
+</nav>
+<h1>Watch the Vault pipeline in action</h1>
+<p class="intro">Follow a SMILES input through FastSolv and an image through DECIMER, from the live Skill Catalog to GitHub Actions, Supabase and the returned files.</p>
+<p class="meta">11:59 · Recorded September 29, 2026 · Silent, with on-screen explanations</p>
+<video aria-label="SSC Vault pipeline walkthrough" controls="" id="walkthrough" playsinline="" poster="media/walkthrough-poster.jpg" preload="metadata">
+<source src="media/ssc-vault-walkthrough.mp4" type="video/mp4"/>
+<track kind="captions" label="English" src="media/ssc-vault-walkthrough.vtt" srclang="en"/>
+<track kind="chapters" label="Chapters" src="media/chapters.vtt" srclang="en"/>
+<p><a href="media/ssc-vault-walkthrough.mp4">Download the walkthrough video</a> to watch it.</p>
+</video>
+<div class="video-links">
+<a download="" href="media/ssc-vault-walkthrough.mp4">Download video (18 MB)</a>
+<a download="" href="media/ssc-vault-walkthrough.vtt">Download captions</a>
+<a href="./">Open the flow diagram</a>
+</div><p class="help">Recorded runs: <a href="https://github.com/Standard-Seed-Corporation/pixel-perfect-clone-47795/actions/runs/36614054708">FastSolv — value / Python</a> · <a href="https://github.com/Standard-Seed-Corporation/pixel-perfect-clone-47795/actions/runs/36615417847">DECIMER — file / Docker</a>. Both completed successfully at revision 8f55be7.</p>
+<section aria-labelledby="chapters-heading">
+<h2 id="chapters-heading">Jump to a chapter</h2>
+<p class="help">Choose a timestamp to play that part. The address updates so you can share the same moment. Use full screen for code and diagram detail.</p>
+<ol class="chapters"><li><a data-start="0.000" href="#t=0.000"><time>0:00</time><span>Start with the diagram as your home tab</span></a></li><li><a data-start="13.200" href="#t=13.200"><time>0:13</time><span>Follow the map into the signed-in Vault</span></a></li><li><a data-start="26.533" href="#t=26.533"><time>0:26</time><span>Choose a module from its live contract</span></a></li><li><a data-start="60.600" href="#t=60.600"><time>1:00</time><span>The job appears in the organization board</span></a></li><li><a data-start="71.467" href="#t=71.467"><time>1:11</time><span>Admission is a backend decision</span></a></li><li><a data-start="96.333" href="#t=96.333"><time>1:36</time><span>Check access before creating a job</span></a></li><li><a data-start="129.000" href="#t=129.000"><time>2:09</time><span>Follow the map to the execution service</span></a></li><li><a data-start="150.067" href="#t=150.067"><time>2:30</time><span>Match the job ID to its workflow run</span></a></li><li><a data-start="172.867" href="#t=172.867"><time>2:52</time><span>Here is the code orchestrating this run</span></a></li><li><a data-start="199.467" href="#t=199.467"><time>3:19</time><span>The module produces the data file</span></a></li><li><a data-start="267.733" href="#t=267.733"><time>4:27</time><span>Return through the callback</span></a></li><li><a data-start="291.200" href="#t=291.200"><time>4:51</time><span>Upload first, then mark success</span></a></li><li><a data-start="310.000" href="#t=310.000"><time>5:10</time><span>Authorize the return path</span></a></li><li><a data-start="370.267" href="#t=370.267"><time>6:10</time><span>Return to the completed job</span></a></li><li><a data-start="379.267" href="#t=379.267"><time>6:19</time><span>Open the live result view</span></a></li><li><a data-start="400.133" href="#t=400.133"><time>6:40</time><span>Choose the Docker and file-input path</span></a></li><li><a data-start="430.133" href="#t=430.133"><time>7:10</time><span>Stage a file only after admission</span></a></li><li><a data-start="446.467" href="#t=446.467"><time>7:26</time><span>The file path selects a container runtime</span></a></li><li><a data-start="482.800" href="#t=482.800"><time>8:02</time><span>The image job uses the same workflow</span></a></li><li><a data-start="523.200" href="#t=523.200"><time>8:43</time><span>Compare both completed jobs</span></a></li><li><a data-start="542.800" href="#t=542.800"><time>9:02</time><span>Follow the reference into private Storage</span></a></li><li><a data-start="598.200" href="#t=598.200"><time>9:58</time><span>Return the image result to the member</span></a></li><li><a data-start="639.133" href="#t=639.133"><time>10:39</time><span>Use the diagram to retrace the flow</span></a></li><li><a data-start="650.133" href="#t=650.133"><time>10:50</time><span>The request and execution overlap</span></a></li><li><a data-start="659.333" href="#t=659.333"><time>10:59</time><span>The durable records connect the services</span></a></li><li><a data-start="674.800" href="#t=674.800"><time>11:14</time><span>Billing and module release feed admission</span></a></li><li><a data-start="687.333" href="#t=687.333"><time>11:27</time><span>One loop, two demonstrated runtimes</span></a></li></ol>
+</section>
+<footer>Navigation and source focus were selected by Jev. Recorded actions run at their original speed; waiting time is trimmed. The live Skill Catalog differs from the older frontend source linked in the diagram. Backend source excerpts are pinned to 8f55be7; live job outcomes are checked separately.</footer>
+</main>
+<script src="walkthrough.js"></script>
+</body>
+</html>

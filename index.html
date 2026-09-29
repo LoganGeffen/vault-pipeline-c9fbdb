@@ -134,9 +134,10 @@ body{margin:0} .figbox{min-width:0;overscroll-behavior:contain;touch-action:pan-
 @media(max-width:600px){.wrap{padding:2rem 1rem 4rem}.zoombar .hint{width:100%;margin-left:0}h2 .std{font-size:.6rem;text-align:right}.figbox{padding:1rem .6rem}td.num{white-space:nowrap}.tablewrap{overflow-wrap:anywhere}code{white-space:normal}figure{width:calc(100vw - 24px)}}
 </style></head><body><div class="wrap"><div class="col">
 <p class="doc-label">Standard Seed Vault · engineering walkthrough</p>
-<nav class="page-tabs" aria-label="Vault reference"><a href="#locations" aria-current="page">Flow diagram</a><a href="#key-fig1">Walkthrough</a></nav>
+<nav class="page-tabs" aria-label="Vault reference"><a href="#locations" aria-current="page">Flow diagram</a><a href="walkthrough.html">Walkthrough</a></nav>
 <h1>The Vault module pipeline</h1>
 <p class="abstract">A member chooses a module and submits one value or file. Supabase admits the job, GitHub Actions runs the selected <b>Python or Docker</b> package, and the callback stores its result privately. The browser follows job progress and requests an authorized download. Modules share the registry, runner and job contract.</p>
+<p class="reference-note">The <a href="walkthrough.html">September 29 walkthrough</a> follows two successful live jobs through Python and Docker. The live Vault uses a Skill Catalog and result visualizations that differ from the older frontend source pinned below; deployed frontend/backend parity is not implied by those source links.</p>
 <p class="abstract" style="font-size:.9rem;margin-top:.2rem"><b>Use the diagram as your home tab.</b> Green <b>Open…</b> links inside the boxes open the live screen. Blue file paths open its code. Return here between stops. <a href="#locations">Go to diagram ↓</a></p>
 <p class="reference-note">Source links use <a href="https://github.com/Standard-Seed-Corporation/pixel-perfect-clone-47795/tree/8f55be7f6859bd78771414faa23f7e29c117cb82" target="_blank" rel="noopener noreferrer">reviewed September 24 code (8f55be7)</a>. This is the tracked runtime contract; deployed backend and frontend parity have not been freshly verified.</p>
 <hr class="rule">
