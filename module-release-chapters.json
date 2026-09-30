@@ -1,0 +1,74 @@
+[
+  {
+    "start": 0,
+    "duration": 29.266667,
+    "title": "Prepared module files \u2014 partial recording",
+    "caption": "Prepared before filming. Later live-run and tier-change chapters remain unfilmed.",
+    "source_take": "09-prepared-module-files",
+    "source_start": 0
+  },
+  {
+    "start": 29.266667,
+    "duration": 10.533333,
+    "title": "Canonical local acceptance",
+    "caption": "Real command output: Training Echo passes. This is not a production-job claim.",
+    "source_take": "11-local-acceptance",
+    "source_start": 15
+  },
+  {
+    "start": 39.800000000000004,
+    "duration": 22.066667,
+    "title": "Training Echo PR #54",
+    "caption": "Prepared PR updated with main. Exact updated head e0fae77 passed required checks.",
+    "source_take": "10-training-pr-diff",
+    "source_start": 0
+  },
+  {
+    "start": 61.86666700000001,
+    "duration": 30.266667,
+    "title": "Initial Training Echo merge \u2014 real action",
+    "caption": "Merged via gh during recording, then GitHub refreshed. Merge commit: 31a0f8a.",
+    "source_take": "12-training-initial-merge",
+    "source_start": 0
+  },
+  {
+    "start": 92.133334,
+    "duration": 9.466667,
+    "title": "Live registry readback",
+    "caption": "Both modules disabled/hidden. Coptis hold merged earlier; that early capture stalled.",
+    "source_take": "16-live-registry-readback",
+    "source_start": 0
+  },
+  {
+    "start": 101.600001,
+    "duration": 9.0,
+    "title": "Backend policy deployment \u2014 real action",
+    "caption": "Only submit-job deployed from 31a0f8a. Registry CI did not deploy this function.",
+    "source_take": "13-silver-backend-deploy",
+    "source_start": 0
+  },
+  {
+    "start": 110.600001,
+    "duration": 10.333333,
+    "title": "Backend verified: ACTIVE v12",
+    "caption": "Deployed application sources match reviewed source. Frontend publication is separate.",
+    "source_take": "13-silver-backend-deploy-overview",
+    "source_start": 0
+  },
+  {
+    "start": 120.933334,
+    "duration": 18.0,
+    "title": "Frontend publication blocked",
+    "caption": "Lovable blocked publishing for suspicious activity and directed us to support.",
+    "source_take": "14-silver-frontend-publication",
+    "source_start": 0
+  },
+  {
+    "start": 138.933334,
+    "duration": 13.066667,
+    "title": "Safe closeout \u2014 demonstration incomplete",
+    "caption": "Both fixtures restored to Platinum. No live run or Silver-to-Gold change was performed.",
+    "source_take": "15-interrupted-release-closeout",
+    "source_start": 0
+  }
+]
