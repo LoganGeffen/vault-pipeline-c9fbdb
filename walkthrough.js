@@ -32,3 +32,25 @@ video.addEventListener('timeupdate', () => {
     else link.removeAttribute('aria-current');
   });
 });
+
+const captionTrack = video.textTracks[0];
+const captionTitle = document.querySelector('#caption-title');
+const captionBody = document.querySelector('#caption-body');
+captionTrack.mode = 'hidden';
+captionTrack.addEventListener('cuechange', () => {
+  const cue = captionTrack.activeCues[0];
+  const [title = '', ...body] = cue ? cue.text.split('\n') : [];
+  captionTitle.textContent = title;
+  captionBody.textContent = body.join(' ');
+});
+
+const player = document.querySelector('#player');
+const fullscreen = document.querySelector('#fullscreen');
+fullscreen.hidden = !document.fullscreenEnabled;
+fullscreen.addEventListener('click', async () => {
+  if (document.fullscreenElement) await document.exitFullscreen();
+  else await player.requestFullscreen();
+});
+document.addEventListener('fullscreenchange', () => {
+  fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+});

@@ -19,7 +19,15 @@
   .meta, .help { color: #6d7480; font-size: .88rem; }
   a { color: #2f4d73; text-underline-offset: .18em; }
   a:focus-visible { outline: 3px solid #d79a2e; outline-offset: 3px; }
-  video { display: block; width: 100%; aspect-ratio: 240 / 169; max-height: 80vh; background: #111827; border-radius: 6px; scroll-margin-top: 1rem; }
+  video { display: block; width: 100%; aspect-ratio: 240 / 151; max-height: 80vh; background: #111827; border-radius: 6px 6px 0 0; scroll-margin-top: 1rem; }
+  .player { background: #111827; border-radius: 6px; overflow: hidden; }
+  .caption-panel { padding: 1rem 1.4rem; color: #fff; font-size: 1rem; line-height: 1.5; }
+  .caption-panel strong { display: block; color: #70e1bd; margin-bottom: .3rem; }
+  .player-tools { display: flex; justify-content: flex-end; padding: 0 1rem .7rem; }
+  .player-tools button { font: inherit; color: #fff; background: transparent; border: 1px solid #788393; border-radius: 4px; padding: .25rem .7rem; cursor: pointer; }
+  .player:fullscreen { display: flex; flex-direction: column; width: 100%; height: 100%; padding: .5rem; border-radius: 0; }
+  .player:fullscreen video { flex: 1; min-height: 0; height: 0; max-height: none; object-fit: contain; }
+  video::-webkit-media-controls-fullscreen-button { display: none; }
   .video-links { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; margin: .75rem 0 2rem; font-size: .88rem; }
   h2 { font-size: 1.15rem; margin: 2rem 0 .4rem; }
   .chapters { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; }
@@ -43,15 +51,19 @@
 <h1>Watch the Vault pipeline in action</h1>
 <p class="intro">Start from the C4 diagram and follow its links through FastSolv and DECIMER: live inputs, GitHub execution, Supabase records, private files and returned results.</p>
 <p class="meta">17:35 · Revised cut · Recorded September 29, 2026 · Silent, with on-screen explanations</p>
-<video aria-label="SSC Vault pipeline walkthrough" controls="" id="walkthrough" playsinline="" poster="media/walkthrough-poster.jpg?v=2" preload="metadata">
-<source src="media/ssc-vault-walkthrough.mp4?v=2" type="video/mp4"/>
-<track kind="captions" label="English" src="media/ssc-vault-walkthrough.vtt?v=2" srclang="en"/>
-<track kind="chapters" label="Chapters" src="media/chapters.vtt?v=2" srclang="en"/>
-<p><a href="media/ssc-vault-walkthrough.mp4?v=2">Download the walkthrough video</a> to watch it.</p>
+<div class="player" id="player">
+<video controlslist="nofullscreen" disablepictureinpicture="" aria-label="SSC Vault pipeline walkthrough" controls="" id="walkthrough" playsinline="" poster="media/walkthrough-poster.jpg?v=3" preload="metadata">
+<source src="media/ssc-vault-walkthrough.mp4?v=3" type="video/mp4"/>
+<track kind="metadata" label="English explanations" src="media/ssc-vault-walkthrough.vtt?v=3" srclang="en"/>
+<track kind="chapters" label="Chapters" src="media/chapters.vtt?v=3" srclang="en"/>
+<p><a href="media/ssc-vault-walkthrough.mp4?v=3">Download the walkthrough video</a> to watch it.</p>
 </video>
+<div class="caption-panel" aria-label="Current video explanation"><strong id="caption-title">Start from the SSC Vault diagram</strong><span id="caption-body">Keep this HTML page as the home tab. Green links open live services; blue paths open source. We will return to the map at each handoff.</span></div>
+<div class="player-tools"><button type="button" id="fullscreen">Full screen</button></div>
+</div>
 <div class="video-links">
-<a download="" href="media/ssc-vault-walkthrough.mp4?v=2">Download video (31 MB)</a>
-<a download="" href="media/ssc-vault-walkthrough.vtt?v=2">Download captions</a>
+<a download="" href="media/ssc-vault-walkthrough.mp4?v=3">Download video (30 MB)</a>
+<a download="" href="media/ssc-vault-walkthrough.vtt?v=3">Download captions</a>
 <a href="./">Open the flow diagram</a>
 </div><p class="help">Recorded runs: <a href="https://github.com/Standard-Seed-Corporation/pixel-perfect-clone-47795/actions/runs/36639280007">FastSolv — value / Python</a> · <a href="https://github.com/Standard-Seed-Corporation/pixel-perfect-clone-47795/actions/runs/36639912376">DECIMER — file / Docker</a>. Both completed successfully at revision 8f55be7.</p>
 <section aria-labelledby="chapters-heading">
@@ -61,6 +73,6 @@
 </section>
 <footer>Navigation and source focus were selected by Jev. Recorded actions run at their original speed; waiting time is trimmed. The live Skill Catalog differs from the older frontend source linked in the diagram. Backend source excerpts are pinned to 8f55be7; live job outcomes are checked separately.</footer>
 </main>
-<script src="walkthrough.js"></script>
+<script src="walkthrough.js?v=3"></script>
 </body>
 </html>
