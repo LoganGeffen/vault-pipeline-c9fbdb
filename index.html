@@ -134,7 +134,8 @@ body{margin:0} .figbox{min-width:0;overscroll-behavior:contain;touch-action:pan-
 @media(max-width:600px){.wrap{padding:2rem 1rem 4rem}.zoombar .hint{width:100%;margin-left:0}h2 .std{font-size:.6rem;text-align:right}.figbox{padding:1rem .6rem}td.num{white-space:nowrap}.tablewrap{overflow-wrap:anywhere}code{white-space:normal}figure{width:calc(100vw - 24px)}}
 </style></head><body><div class="wrap"><div class="col">
 <p class="doc-label">Standard Seed Vault · engineering walkthrough</p>
-<nav class="page-tabs" aria-label="Vault reference"><a href="#locations" aria-current="page">Flow diagram</a><a href="walkthrough.html">Walkthrough</a></nav>
+<nav class="page-tabs" aria-label="Vault reference"><a href="#locations" aria-current="page">Flow diagram</a><a href="walkthrough.html">Walkthrough</a><a href="module-release.html">Module release</a>
+</nav>
 <h1>The Vault module pipeline</h1>
 <p class="abstract">A member chooses a module and submits one value or file. Supabase admits the job, GitHub Actions runs the selected <b>Python or Docker</b> package, and the callback stores its result privately. The browser follows job progress and requests an authorized download. Modules share the registry, runner and job contract.</p>
 <p class="reference-note">The <a href="walkthrough.html">September 29 walkthrough</a> follows two successful live jobs through Python and Docker. The live Vault uses a Skill Catalog and result visualizations that differ from the older frontend source pinned below; deployed frontend/backend parity is not implied by those source links.</p>

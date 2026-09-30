@@ -1,0 +1,12 @@
+diff --git a/supabase/functions/_shared/module-entitlements.ts b/supabase/functions/_shared/module-entitlements.ts
+index 262cef5..47e9a17 100644
+--- a/supabase/functions/_shared/module-entitlements.ts
++++ b/supabase/functions/_shared/module-entitlements.ts
+@@ -20,6 +20,7 @@ export const MODULE_ACCESS: Record<string, ModuleAccess> = {
+   netinfer: "platinum",
+   "protox-3": "platinum",
+   reverse: "silver",
++  training_echo: "silver",
+   sequence_summary: "silver",
+   "trackmypdb-internal": "gold",
+ };

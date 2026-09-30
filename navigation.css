@@ -1,5 +1,6 @@
 .page-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: .25rem;
   margin: 0 0 1.8rem;
   border-bottom: 1px solid #d5d7dc;

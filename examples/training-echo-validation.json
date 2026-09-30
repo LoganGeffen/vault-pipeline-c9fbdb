@@ -1,0 +1,15 @@
+{
+  "module": "training_echo",
+  "source_commit": "5673649e63510ae8620a4795a1fe4abb78c19a4d",
+  "scope": "Local canonical module_ci on the identical file contents before commit; GitHub checks tracked separately",
+  "status": "pass",
+  "checks": [
+    "exact CSV header and row",
+    "CSV escaping of commas and quotes",
+    "character count",
+    "empty input rejected",
+    "registry projection",
+    "dispatch/input and callback conformance"
+  ],
+  "live_deployed": false
+}
