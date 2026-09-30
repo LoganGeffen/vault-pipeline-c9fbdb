@@ -22,6 +22,7 @@ chapters.forEach(link => {
 });
 
 video.addEventListener('loadedmetadata', () => seekFromAddress());
+if (video.readyState) seekFromAddress();
 window.addEventListener('hashchange', () => {
   if (video.readyState) seekFromAddress();
 });
