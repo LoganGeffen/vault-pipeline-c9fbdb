@@ -1,0 +1,111 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:29.267
+Prepared module files
+Files were prepared before filming; this is a source walkthrough, not reenacted authorship.
+
+2
+00:00:29.267 --> 00:00:39.800
+Local acceptance
+The real Training Echo acceptance command verifies the exact CSV contract.
+
+3
+00:00:39.800 --> 00:01:01.867
+Initial PR #54
+Review the prepared module diff and updated head; required checks passed before merge.
+
+4
+00:01:01.867 --> 00:01:32.133
+Initial merge: recorded September 30
+Actual merge of PR #54; the released manifest starts disabled and hidden.
+
+5
+00:01:32.133 --> 00:01:41.600
+Verify the registry
+The live registry reflects the release. Coptis is held disabled and hidden.
+
+6
+00:01:41.600 --> 00:01:50.600
+Deploy Silver admission policy
+Real submit-job deployment from reviewed source. Registry CI does not deploy functions.
+
+7
+00:01:50.600 --> 00:02:08.600
+Earlier publication attempt
+This attempt was blocked. The next chapter verifies publication was unnecessary.
+
+8
+00:02:08.600 --> 00:02:23.800
+Verify publication necessity
+Live Skill Catalog reads the registry. Preserve the different production frontend; no publish.
+
+9
+00:02:23.800 --> 00:02:35.400
+Enable and reveal: PR #56
+Actual manifest edit, validation, branch, commit, push and pull request.
+
+10
+00:02:35.400 --> 00:03:13.400
+Review, merge and registry release
+Exact-head checks precede the merge. Match the workflow checkout to the intended commit.
+
+11
+00:03:13.400 --> 00:03:58.267
+Live Silver run and CSV
+The existing published UI discovers Training Echo; one real job returns the exact CSV.
+
+12
+00:03:58.267 --> 00:04:09.200
+Maintain title, description and visibility
+Actual manifest-only PR. No backend or frontend deployment is required for these fields.
+
+13
+00:04:09.200 --> 00:04:48.533
+Release the maintenance change
+The automatic registry projection updates metadata and hides discovery.
+
+14
+00:04:48.533 --> 00:05:03.533
+Verify hide without deleting history
+The live catalog no longer offers Training Echo. Existing jobs remain auditable.
+
+15
+00:05:03.533 --> 00:05:17.000
+Change minimum tier: Silver to Gold
+Actual policy edit plus manifest reveal. The backend enforces the new requirement.
+
+16
+00:05:17.000 --> 00:05:55.933
+Merge the Gold policy
+Review and checks precede merge. Registry CI reveals the module but does not deploy policy.
+
+17
+00:05:55.933 --> 00:06:06.400
+Deploy reviewed Gold admission
+Deploy only submit-job. Confirm its deployed application sources match the reviewed commit.
+
+18
+00:06:06.400 --> 00:06:29.000
+Silver denied: no job created
+Real browser submission receives HTTP 403 module_requires_upgrade; the job count is unchanged.
+
+19
+00:06:29.000 --> 00:07:18.733
+Gold allowed: successful job and CSV
+The same published UI accepts a Gold fixture and produces the expected private result.
+
+20
+00:07:18.733 --> 00:07:31.667
+Disable and hide after demonstration
+Actual final manifest PR. Retain execution history and results.
+
+21
+00:07:31.667 --> 00:08:11.067
+Verify final registry release
+Training Echo and Coptis both disabled and hidden after the final merge.
+
+22
+00:08:11.067 --> 00:08:53.067
+Restore fixtures and verify closeout
+Both exact original Platinum subscriptions restored; existing runtime walkthrough preserved.

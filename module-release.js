@@ -4,9 +4,9 @@ const required = document.querySelector('#required');
 const held = document.querySelector('#held');
 function explain() {
   const entitled = Number(held.value) >= Number(required.value);
-  const catalog = enabled.checked && visible.checked && entitled;
+  const catalog = enabled.checked && visible.checked;
   const allowed = enabled.checked && entitled;
-  document.querySelector('#control-result').textContent = `Catalog: ${catalog ? 'shown' : 'hidden'}. Backend submission: ${allowed ? 'permitted by these controls' : 'blocked'}. ` + (!enabled.checked ? 'The module is disabled.' : !entitled ? 'The organization does not meet the required tier.' : !visible.checked ? 'Hiding the module does not revoke execution permission; an authorized direct submission can still run.' : 'Other admission checks, including input validation and quota, still apply.');
+  document.querySelector('#control-result').textContent = `Catalog: ${catalog ? 'shown' : 'hidden'}. Backend submission: ${allowed ? 'permitted by these controls' : 'blocked'}. ` + (!enabled.checked ? 'The module is disabled.' : !entitled ? 'The live catalog may still show the module; backend admission denies this tier.' : !visible.checked ? 'Hiding the module does not revoke execution permission; an authorized direct submission can still run.' : 'Other admission checks, including input validation and quota, still apply.');
 }
 [enabled, visible, required, held].forEach(control => control.addEventListener('change', explain));
 explain();

@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:29.267
+Prepared module files
+
+2
+00:00:29.267 --> 00:00:39.800
+Local acceptance
+
+3
+00:00:39.800 --> 00:01:01.867
+Initial PR #54
+
+4
+00:01:01.867 --> 00:01:32.133
+Initial merge: recorded September 30
+
+5
+00:01:32.133 --> 00:01:41.600
+Verify the registry
+
+6
+00:01:41.600 --> 00:01:50.600
+Deploy Silver admission policy
+
+7
+00:01:50.600 --> 00:02:08.600
+Earlier publication attempt
+
+8
+00:02:08.600 --> 00:02:23.800
+Verify publication necessity
+
+9
+00:02:23.800 --> 00:02:35.400
+Enable and reveal: PR #56
+
+10
+00:02:35.400 --> 00:03:13.400
+Review, merge and registry release
+
+11
+00:03:13.400 --> 00:03:58.267
+Live Silver run and CSV
+
+12
+00:03:58.267 --> 00:04:09.200
+Maintain title, description and visibility
+
+13
+00:04:09.200 --> 00:04:48.533
+Release the maintenance change
+
+14
+00:04:48.533 --> 00:05:03.533
+Verify hide without deleting history
+
+15
+00:05:03.533 --> 00:05:17.000
+Change minimum tier: Silver to Gold
+
+16
+00:05:17.000 --> 00:05:55.933
+Merge the Gold policy
+
+17
+00:05:55.933 --> 00:06:06.400
+Deploy reviewed Gold admission
+
+18
+00:06:06.400 --> 00:06:29.000
+Silver denied: no job created
+
+19
+00:06:29.000 --> 00:07:18.733
+Gold allowed: successful job and CSV
+
+20
+00:07:18.733 --> 00:07:31.667
+Disable and hide after demonstration
+
+21
+00:07:31.667 --> 00:08:11.067
+Verify final registry release
+
+22
+00:08:11.067 --> 00:08:53.067
+Restore fixtures and verify closeout

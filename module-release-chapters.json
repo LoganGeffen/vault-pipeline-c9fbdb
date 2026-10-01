@@ -2,73 +2,133 @@
   {
     "start": 0,
     "duration": 29.266667,
-    "title": "Prepared module files \u2014 partial recording",
-    "caption": "Prepared before filming. Later live-run and tier-change chapters remain unfilmed.",
-    "source_take": "09-prepared-module-files",
-    "source_start": 0
+    "title": "Prepared module files",
+    "caption": "Files were prepared before filming; this is a source walkthrough, not reenacted authorship."
   },
   {
     "start": 29.266667,
-    "duration": 10.533333,
-    "title": "Canonical local acceptance",
-    "caption": "Real command output: Training Echo passes. This is not a production-job claim.",
-    "source_take": "11-local-acceptance",
-    "source_start": 15
+    "duration": 10.533333000000002,
+    "title": "Local acceptance",
+    "caption": "The real Training Echo acceptance command verifies the exact CSV contract."
   },
   {
     "start": 39.800000000000004,
-    "duration": 22.066667,
-    "title": "Training Echo PR #54",
-    "caption": "Prepared PR updated with main. Exact updated head e0fae77 passed required checks.",
-    "source_take": "10-training-pr-diff",
-    "source_start": 0
+    "duration": 22.066667000000002,
+    "title": "Initial PR #54",
+    "caption": "Review the prepared module diff and updated head; required checks passed before merge."
   },
   {
     "start": 61.86666700000001,
-    "duration": 30.266667,
-    "title": "Initial Training Echo merge \u2014 real action",
-    "caption": "Merged via gh during recording, then GitHub refreshed. Merge commit: 31a0f8a.",
-    "source_take": "12-training-initial-merge",
-    "source_start": 0
+    "duration": 30.266666999999998,
+    "title": "Initial merge: recorded September 30",
+    "caption": "Actual merge of PR #54; the released manifest starts disabled and hidden."
   },
   {
     "start": 92.133334,
-    "duration": 9.466667,
-    "title": "Live registry readback",
-    "caption": "Both modules disabled/hidden. Coptis hold merged earlier; that early capture stalled.",
-    "source_take": "16-live-registry-readback",
-    "source_start": 0
+    "duration": 9.466667000000001,
+    "title": "Verify the registry",
+    "caption": "The live registry reflects the release. Coptis is held disabled and hidden."
   },
   {
     "start": 101.600001,
     "duration": 9.0,
-    "title": "Backend policy deployment \u2014 real action",
-    "caption": "Only submit-job deployed from 31a0f8a. Registry CI did not deploy this function.",
-    "source_take": "13-silver-backend-deploy",
-    "source_start": 0
+    "title": "Deploy Silver admission policy",
+    "caption": "Real submit-job deployment from reviewed source. Registry CI does not deploy functions."
   },
   {
     "start": 110.600001,
-    "duration": 10.333333,
-    "title": "Backend verified: ACTIVE v12",
-    "caption": "Deployed application sources match reviewed source. Frontend publication is separate.",
-    "source_take": "13-silver-backend-deploy-overview",
-    "source_start": 0
+    "duration": 18.000000000000014,
+    "title": "Earlier publication attempt",
+    "caption": "This attempt was blocked. The next chapter verifies publication was unnecessary."
   },
   {
-    "start": 120.933334,
-    "duration": 18.0,
-    "title": "Frontend publication blocked",
-    "caption": "Lovable blocked publishing for suspicious activity and directed us to support.",
-    "source_take": "14-silver-frontend-publication",
-    "source_start": 0
+    "start": 128.60000100000002,
+    "duration": 15.199999999999989,
+    "title": "Verify publication necessity",
+    "caption": "Live Skill Catalog reads the registry. Preserve the different production frontend; no publish."
   },
   {
-    "start": 138.933334,
-    "duration": 13.066667,
-    "title": "Safe closeout \u2014 demonstration incomplete",
-    "caption": "Both fixtures restored to Platinum. No live run or Silver-to-Gold change was performed.",
-    "source_take": "15-interrupted-release-closeout",
-    "source_start": 0
+    "start": 143.800001,
+    "duration": 11.599999999999994,
+    "title": "Enable and reveal: PR #56",
+    "caption": "Actual manifest edit, validation, branch, commit, push and pull request."
+  },
+  {
+    "start": 155.400001,
+    "duration": 38.0,
+    "title": "Review, merge and registry release",
+    "caption": "Exact-head checks precede the merge. Match the workflow checkout to the intended commit."
+  },
+  {
+    "start": 193.400001,
+    "duration": 44.86666700000001,
+    "title": "Live Silver run and CSV",
+    "caption": "The existing published UI discovers Training Echo; one real job returns the exact CSV."
+  },
+  {
+    "start": 238.266668,
+    "duration": 10.933333000000005,
+    "title": "Maintain title, description and visibility",
+    "caption": "Actual manifest-only PR. No backend or frontend deployment is required for these fields."
+  },
+  {
+    "start": 249.20000100000001,
+    "duration": 39.33333300000001,
+    "title": "Release the maintenance change",
+    "caption": "The automatic registry projection updates metadata and hides discovery."
+  },
+  {
+    "start": 288.533334,
+    "duration": 15.0,
+    "title": "Verify hide without deleting history",
+    "caption": "The live catalog no longer offers Training Echo. Existing jobs remain auditable."
+  },
+  {
+    "start": 303.533334,
+    "duration": 13.466666999999973,
+    "title": "Change minimum tier: Silver to Gold",
+    "caption": "Actual policy edit plus manifest reveal. The backend enforces the new requirement."
+  },
+  {
+    "start": 317.000001,
+    "duration": 38.933333000000005,
+    "title": "Merge the Gold policy",
+    "caption": "Review and checks precede merge. Registry CI reveals the module but does not deploy policy."
+  },
+  {
+    "start": 355.933334,
+    "duration": 10.466666999999973,
+    "title": "Deploy reviewed Gold admission",
+    "caption": "Deploy only submit-job. Confirm its deployed application sources match the reviewed commit."
+  },
+  {
+    "start": 366.400001,
+    "duration": 22.600000000000023,
+    "title": "Silver denied: no job created",
+    "caption": "Real browser submission receives HTTP 403 module_requires_upgrade; the job count is unchanged."
+  },
+  {
+    "start": 389.000001,
+    "duration": 49.733333000000016,
+    "title": "Gold allowed: successful job and CSV",
+    "caption": "The same published UI accepts a Gold fixture and produces the expected private result."
+  },
+  {
+    "start": 438.733334,
+    "duration": 12.933333000000005,
+    "title": "Disable and hide after demonstration",
+    "caption": "Actual final manifest PR. Retain execution history and results."
+  },
+  {
+    "start": 451.666667,
+    "duration": 39.39999999999998,
+    "title": "Verify final registry release",
+    "caption": "Training Echo and Coptis both disabled and hidden after the final merge."
+  },
+  {
+    "start": 491.066667,
+    "duration": 42.00000000000006,
+    "title": "Restore fixtures and verify closeout",
+    "caption": "Both exact original Platinum subscriptions restored; existing runtime walkthrough preserved."
   }
 ]
