@@ -1,0 +1,121 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:04:12.333
+Find the branch, module folder and five files
+
+2
+00:04:12.333 --> 00:04:42.867
+Local acceptance
+
+3
+00:04:42.867 --> 00:07:39.667
+Navigate to PR #54 and inspect its diff and checks
+
+4
+00:07:39.667 --> 00:08:42.667
+Open an individual validation check
+
+5
+00:08:42.667 --> 00:09:17.933
+Initial merge: recorded September 30
+
+6
+00:09:17.933 --> 00:09:32.400
+Verify the registry
+
+7
+00:09:32.400 --> 00:10:52.800
+Find the backend module access policy
+
+8
+00:10:52.800 --> 00:11:06.800
+Deploy Silver admission policy
+
+9
+00:11:06.800 --> 00:11:29.800
+Earlier publication attempt
+
+10
+00:11:29.800 --> 00:11:50.000
+Verify publication necessity
+
+11
+00:11:50.000 --> 00:14:04.200
+Review enablement and visibility in PR #56
+
+12
+00:14:04.200 --> 00:14:20.800
+Enable and reveal: PR #56
+
+13
+00:14:20.800 --> 00:15:03.800
+Review, merge and registry release
+
+14
+00:15:03.800 --> 00:16:12.933
+Find the PR #56 registry release in GitHub Actions
+
+15
+00:16:12.933 --> 00:17:04.800
+Live Silver run and CSV
+
+16
+00:17:04.800 --> 00:19:19.333
+Review title, description and visibility in PR #57
+
+17
+00:19:19.333 --> 00:19:35.267
+Maintain title, description and visibility
+
+18
+00:19:35.267 --> 00:20:19.600
+Release the maintenance change
+
+19
+00:20:19.600 --> 00:20:39.600
+Verify hide without deleting history
+
+20
+00:20:39.600 --> 00:23:23.800
+Review the Silver-to-Gold change in PR #58
+
+21
+00:23:23.800 --> 00:23:42.267
+Change minimum tier: Silver to Gold
+
+22
+00:23:42.267 --> 00:24:26.200
+Merge the Gold policy
+
+23
+00:24:26.200 --> 00:24:41.667
+Deploy reviewed Gold admission
+
+24
+00:24:41.667 --> 00:25:09.267
+Silver denied: no job created
+
+25
+00:25:09.267 --> 00:26:06.000
+Gold allowed: successful job and CSV
+
+26
+00:26:06.000 --> 00:28:19.933
+Review final disablement in PR #59
+
+27
+00:28:19.933 --> 00:28:37.867
+Disable and hide after demonstration
+
+28
+00:28:37.867 --> 00:29:22.267
+Verify final registry release
+
+29
+00:29:22.267 --> 00:31:22.400
+Navigate from the catalog to retained job results
+
+30
+00:31:22.400 --> 00:32:11.400
+Restore fixtures and verify closeout

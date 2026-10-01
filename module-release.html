@@ -3,17 +3,18 @@
 <h1>From a module folder to the live Vault</h1><p class="intro">Build a tiny module, prove its output, then follow the release into the registry, backend and published site. Use this page as the home tab for the team demonstration; return to the map at each handoff.</p>
 <p class="note">Completed October 1, 2026. Final source <code>37839b8</code>; backend <code>submit-job</code> v13 enforces Gold. Training Echo and Coptis are disabled and hidden. Both test fixtures are restored to their exact original Platinum subscriptions. The existing production frontend was preserved.</p>
 <section id="recording" aria-labelledby="recording-title">
-<h2 id="recording-title">Complete recorded module release and maintenance</h2>
-<p>The recording follows the actual initial merge and deployment, enable/reveal, live Silver run and CSV, metadata and visibility maintenance, Silver-to-Gold policy change, real Silver denial without a job, Gold success, and final disable/restoration. It combines September 30 and October 1 footage; waiting is trimmed where labeled. Prepared files are shown honestly as prepared, and completed actions are not reenacted.</p>
-<video id="module-release-video" controls preload="metadata" playsinline poster="media/module-release-full-poster.jpg" style="display:block;width:100%;background:#101820" aria-label="Full SSC module-release recording">
-<source src="media/ssc-module-release-full.mp4" type="video/mp4">
-<track kind="captions" src="media/ssc-module-release-full.vtt" srclang="en" label="English">
-<track kind="chapters" src="media/module-release-full-chapters.vtt" srclang="en" label="Chapters">
-<a href="media/ssc-module-release-full.mp4">Download the full recording</a>
+<h2 id="recording-title">Step-by-step module release and maintenance</h2>
+<p>Follow the branch, module folder, individual files, pull requests, checks and registry release with visible clicks and deliberate scrolling. Read-only navigation tours are interleaved with the original September 30 and October 1 release actions and live tests. Captions explain each step below the footage.</p>
+<video id="module-release-video" controls preload="metadata" playsinline poster="media/module-release-revised-poster.jpg" style="display:block;width:100%;background:#101820" aria-label="Revised SSC module-release walkthrough">
+<source src="media/ssc-module-release-revised.mp4" type="video/mp4">
+<track kind="captions" src="media/ssc-module-release-revised.vtt" srclang="en" label="English">
+<track kind="chapters" src="media/module-release-revised-chapters.vtt" srclang="en" label="Chapters">
+<a href="media/ssc-module-release-revised.mp4">Download the full recording</a>
 </video>
-<p class="note">Captions are below the browser footage. Silent video; no desktop capture or native input. The historical blocked publication attempt is included with the subsequent necessity finding. No frontend publication was needed or performed on October 1.</p>
+<p class="note">32m11s · 30 chapters. Captions are below the browser footage. Silent video; no desktop capture or native input. The historical blocked publication attempt is included with the subsequent necessity finding. No frontend publication was needed or performed on October 1.</p>
 <ol id="module-video-chapters"></ol>
-<p><a href="media/ssc-module-release-full.mp4" download>Download MP4</a> · <a href="media/ssc-module-release-full.vtt">Read captions</a> · <a href="walkthrough.html">Existing runtime walkthrough</a></p>
+<p class="note"><a href="media/ssc-module-release-full.mp4">Original 8m53s cut</a> remains available. New navigation footage browses completed changes; merges, deployments and test submissions use their original recordings.</p>
+<p><a href="media/ssc-module-release-revised.mp4" download>Download MP4</a> · <a href="media/ssc-module-release-revised.vtt">Read captions</a> · <a href="walkthrough.html">Existing runtime walkthrough</a></p>
 <p class="note">Provenance: the initial branch and PR were prepared before filming. Training Echo PR #54 merged during the recorded take. The earlier Coptis-hold capture stalled; its scene is explicitly a later live registry readback, not a reenacted merge. Git operations and deployment use real command output rendered in the isolated browser or an actual provider page refreshed after the command.</p>
 </section>
 <h2>1 · Follow the release map</h2><p>The manifest updates the registry automatically. A new slug or tier change requires the matching backend policy. Verify the actual published UI before deciding whether frontend publication is needed; the live Skill Catalog used in this recording reads the registry without a bundled tier filter.</p>
@@ -56,4 +57,4 @@ MODULE_ACCESS.training_echo = "silver"</pre>
 <p>Silver succeeded before the tier change. After Gold deployment, Silver received HTTP 403 with no new job, while Gold created one successful job with the exact expected CSV. The final disabled-module request returned HTTP 400 with no new job. Both successful audit jobs and results remain. Both modules are disabled/hidden, and Stripe plus normal webhook readback confirm exact original Platinum fixture restoration.</p>
 <p>Capture used isolated headless Microsoft Edge and browser-only frames, with no native input or desktop activation. Windows reported no active foreground window during the initial continuation probe; headless process isolation and changing browser frames were verified. The previous runtime walkthrough and the earlier partial recording assets are preserved.</p></div>
 <footer>The existing <a href="./">runtime diagram</a> explains job execution after Run. This page explains module release and controls. A passed training example proves the release and file-delivery path, not scientific accuracy.</footer>
-</main><script src="module-release.js"></script><script src="module-release-video.js"></script></body></html>
+</main><script src="module-release.js"></script><script src="module-release-video.js?v=navigation-revision-20261001"></script></body></html>
