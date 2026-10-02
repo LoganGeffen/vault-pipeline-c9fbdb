@@ -99,69 +99,90 @@
   },
   {
     "start": 1001.6,
+    "duration": 24.0,
+    "title": "Where the CSV goes: the manifest",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-result-storage-20261002/storage-0.mp4",
+    "provenance": "Source explanation at app commit 37839b8; no operational action replayed."
+  },
+  {
+    "start": 1025.6,
+    "duration": 24.0,
+    "title": "Where the CSV goes: the backend upload",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-result-storage-20261002/storage-1.mp4",
+    "provenance": "Source explanation at app commit 37839b8; no operational action replayed."
+  },
+  {
+    "start": 1049.6,
+    "duration": 24.0,
+    "title": "Where the CSV goes: storage and download",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-result-storage-20261002/storage-2.mp4",
+    "provenance": "Source explanation at app commit 37839b8; no operational action replayed."
+  },
+  {
+    "start": 1073.6,
     "duration": 22.0,
     "title": "What changes through a manifest PR",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-silver-20261002/segments/14.mp4",
     "provenance": "Walkthrough scope \u00b7 October 2, 2026"
   },
   {
-    "start": 1023.6,
+    "start": 1095.6,
     "duration": 134.533333,
     "title": "Review title, description and visibility in PR #57",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/pr-57-navigation.mp4",
     "provenance": "New read-only navigation capture, October 1, 2026"
   },
   {
-    "start": 1158.133333,
+    "start": 1230.133333,
     "duration": 15.933333,
     "title": "Maintain title, description and visibility",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/04-hide-pr.mp4",
     "provenance": "Original recorded release action, October 1, 2026"
   },
   {
-    "start": 1174.066666,
+    "start": 1246.066666,
     "duration": 44.333333,
     "title": "Release the maintenance change",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/merge-hide.mp4",
     "provenance": "Original recorded release action, October 1, 2026"
   },
   {
-    "start": 1218.399999,
+    "start": 1290.399999,
     "duration": 20.0,
     "title": "Verify hide without deleting history",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/hidden-proof.mp4",
     "provenance": "Original recorded release action, October 1, 2026"
   },
   {
-    "start": 1238.399999,
+    "start": 1310.399999,
     "duration": 133.933333,
     "title": "Review final disablement in PR #59",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/pr-59-navigation.mp4",
     "provenance": "New read-only navigation capture, October 1, 2026"
   },
   {
-    "start": 1372.333332,
+    "start": 1444.333332,
     "duration": 17.933333,
     "title": "Disable and hide after demonstration",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/07-close-pr.mp4",
     "provenance": "Original recorded release action, October 1, 2026"
   },
   {
-    "start": 1390.2666649999999,
+    "start": 1462.2666649999999,
     "duration": 44.4,
     "title": "Verify final registry release",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/merge-close.mp4",
     "provenance": "Original recorded release action, October 1, 2026"
   },
   {
-    "start": 1434.666665,
+    "start": 1506.666665,
     "duration": 120.133333,
     "title": "Navigate from the catalog to retained job results",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/vault-catalog-history-navigation.mp4",
     "provenance": "New read-only navigation capture, October 1, 2026"
   },
   {
-    "start": 1554.799998,
+    "start": 1626.799998,
     "duration": 18.0,
     "title": "The maintenance loop",
     "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-silver-20261002/segments/23.mp4",

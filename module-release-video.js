@@ -1,5 +1,5 @@
 const releaseVideo = document.getElementById("module-release-video");
-fetch("module-release-silver-chapters.json").then(response => response.json()).then(chapters => {
+fetch("module-release-silver-chapters.json?v=storage-20261002").then(response => response.json()).then(chapters => {
   const list = document.getElementById("module-video-chapters");
   for (const chapter of chapters) {
     const item = document.createElement("li");

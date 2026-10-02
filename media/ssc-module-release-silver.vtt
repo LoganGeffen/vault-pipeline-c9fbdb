@@ -1,8 +1,5 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:20.000
-Set Silver in the initial PR. Merge and manually deploy the backend policy once. Then maintain name, description, visibility and enabled status through PRs. After each merge: wait for release-modules, then check the Vault.
-
 00:00:20.000 --> 00:00:43.240
 Open the branch selector. Choose the branch that contains the prepared Training Echo module.
 
@@ -168,98 +165,110 @@ The job has succeeded and its result is available.
 00:16:29.733 --> 00:16:41.600
 The verified private CSV contains the exact input text and its character count.
 
-00:16:41.600 --> 00:17:03.600
-Name and description: edit title and ui.description together. Keep enabled and ui.visible true to see the new text in the catalog. Visibility: ui.visible controls discovery. Enabled: enabled controls new jobs. The recorded PR below also hides the module; it demonstrates that effect.
+00:16:41.600 --> 00:16:53.600
+The module writes this local file on the runner. The manifest tells the runner which file to collect and which MIME type to send.
 
-00:17:03.600 --> 00:17:33.973
+00:16:53.600 --> 00:17:05.600
+The path names the local output. Its basename becomes the stored filename; text/csv describes the file type. It does not convert the contents.
+
+00:17:05.600 --> 00:17:17.600
+The runner sends the file bytes to job-callback. The callback chooses the bucket and creates a unique folder for this job and upload attempt.
+
+00:17:17.600 --> 00:17:29.600
+The bucket is fixed in backend code, not the manifest. Storage path: job-results/<job-id>/<attempt-id>/training_echo.csv.
+
+00:17:29.600 --> 00:17:41.600
+The CSV is a private file object in Supabase Storage. The job row holds its reference; the CSV contents are not imported into database rows.
+
+00:17:41.600 --> 00:17:53.600
+The Vault requests the result. get-result checks membership and returns a download link valid for 60 seconds. Coptis uses the same path pattern with docking_results.csv.
+
+00:18:15.600 --> 00:18:45.973
 From the repository, open Pull requests. The completed demonstration PRs are in Closed.
 
-00:17:33.973 --> 00:17:45.981
+00:18:45.973 --> 00:18:57.981
 Open PR #57. Read the description and source branch, then inspect the changed files.
 
-00:17:45.981 --> 00:18:10.973
+00:18:57.981 --> 00:19:22.973
 This PR changes the title, description and visibility together. Hiding also removes the updated catalog card.
 
-00:18:10.973 --> 00:18:27.913
+00:19:22.973 --> 00:19:39.913
 Read the changed lines, then return to the conversation to inspect checks and the merge record.
 
-00:18:27.913 --> 00:19:05.012
+00:19:39.913 --> 00:20:17.012
 Inspect the completed checks for this PR before relying on the merge.
 
-00:19:05.012 --> 00:19:18.100
+00:20:17.012 --> 00:20:30.100
 To see a new name and description in the catalog, keep enabled and ui.visible true when releasing those edits.
 
-00:19:18.133 --> 00:19:26.100
+00:20:30.133 --> 00:20:38.100
 Original recorded change: update the title and description, then hide catalog discovery.
 
-00:19:26.100 --> 00:19:34.067
+00:20:38.100 --> 00:20:46.067
 These manifest fields are released through PR #57.
 
-00:19:34.067 --> 00:19:56.233
+00:20:46.067 --> 00:21:08.233
 Original recording: merge PR #57 and verify its registry release.
 
-00:19:56.233 --> 00:20:18.400
+00:21:08.233 --> 00:21:30.400
 Wait for release-modules to succeed, then refresh the Vault. Manifest-only maintenance needs no function deployment.
 
-00:20:18.400 --> 00:20:28.400
+00:21:30.400 --> 00:21:40.400
 Original readback: the module is no longer offered in the catalog.
 
-00:20:28.400 --> 00:20:38.400
+00:21:40.400 --> 00:21:50.400
 This verifies hiding, not the new catalog text. Existing jobs and results remain available in Runs.
 
-00:20:38.400 --> 00:21:08.459
+00:21:50.400 --> 00:22:20.459
 From the repository, open Pull requests. The completed demonstration PRs are in Closed.
 
-00:21:08.459 --> 00:21:20.515
+00:22:20.459 --> 00:22:32.515
 Open PR #59. Read the description and source branch, then inspect the changed files.
 
-00:21:20.515 --> 00:21:45.608
+00:22:32.515 --> 00:22:57.608
 Set enabled to false to stop new jobs, and ui.visible to false to hide catalog discovery.
 
-00:21:45.608 --> 00:22:02.479
+00:22:57.608 --> 00:23:14.479
 Read the changed lines, then return to the conversation to inspect checks and the merge record.
 
-00:22:02.479 --> 00:22:39.415
+00:23:14.479 --> 00:23:51.415
 Inspect the completed checks for this PR before relying on the merge.
 
-00:22:39.415 --> 00:22:52.300
+00:23:51.415 --> 00:24:04.300
 Next, watch the recorded release and verify that its outcome matches this reviewed change.
 
-00:22:52.333 --> 00:23:01.300
+00:24:04.333 --> 00:24:13.300
 Original recorded change: disable the module and hide it through PR #59.
 
-00:23:01.300 --> 00:23:10.267
+00:24:13.300 --> 00:24:22.267
 Disabling stops new jobs; hiding removes catalog discovery.
 
-00:23:10.267 --> 00:23:32.467
+00:24:22.267 --> 00:24:44.467
 Original recording: verify the final registry release after PR #59.
 
-00:23:32.467 --> 00:23:54.667
+00:24:44.467 --> 00:25:06.667
 Training Echo and Coptis are both disabled and hidden.
 
-00:23:54.667 --> 00:24:11.809
+00:25:06.667 --> 00:25:23.809
 Recorded after cleanup: open the catalog and retained results. The account has been restored to Platinum.
 
-00:24:11.809 --> 00:24:25.851
+00:25:23.809 --> 00:25:37.851
 Open Skill Catalog from the sidebar. Training Echo is hidden after the final disable.
 
-00:24:25.851 --> 00:24:44.837
+00:25:37.851 --> 00:25:56.837
 The catalog contains the currently available skills. Historical results remain in Runs.
 
-00:24:44.837 --> 00:24:58.977
+00:25:56.837 --> 00:26:10.977
 Click Runs. The successful training_echo entry from the Silver test is still retained.
 
-00:24:58.977 --> 00:25:10.913
+00:26:10.977 --> 00:26:22.913
 Open VISUALIZE on that run to inspect its saved output.
 
-00:25:10.913 --> 00:25:25.910
+00:26:22.913 --> 00:26:37.910
 Table shows the original test input and its character count: 36.
 
-00:25:25.910 --> 00:25:40.882
+00:26:37.910 --> 00:26:52.882
 Raw exposes the saved CSV. This is the original result, not a new module run.
 
-00:25:40.882 --> 00:25:54.767
+00:26:52.882 --> 00:27:06.767
 Close returns to Runs. The disabled and hidden module retains this earlier Silver test result.
-
-00:25:54.800 --> 00:26:12.800
-Edit the manifest → open a PR → review checks → merge. Wait for release-modules to succeed, then verify the Vault. Silver was set during the initial setup; later tier changes are outside this cut. Recorded September 30–October 1. Edited excerpts; no production actions replayed.

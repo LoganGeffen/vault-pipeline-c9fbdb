@@ -42,32 +42,41 @@ Find the PR #56 registry release in GitHub Actions
 00:15:49.733 --> 00:16:41.600
 Live Silver run and CSV
 
-00:16:41.600 --> 00:17:03.600
+00:16:41.600 --> 00:17:05.600
+Where the CSV goes: the manifest
+
+00:17:05.600 --> 00:17:29.600
+Where the CSV goes: the backend upload
+
+00:17:29.600 --> 00:17:53.600
+Where the CSV goes: storage and download
+
+00:17:53.600 --> 00:18:15.600
 What changes through a manifest PR
 
-00:17:03.600 --> 00:19:18.133
+00:18:15.600 --> 00:20:30.133
 Review title, description and visibility in PR #57
 
-00:19:18.133 --> 00:19:34.067
+00:20:30.133 --> 00:20:46.067
 Maintain title, description and visibility
 
-00:19:34.067 --> 00:20:18.400
+00:20:46.067 --> 00:21:30.400
 Release the maintenance change
 
-00:20:18.400 --> 00:20:38.400
+00:21:30.400 --> 00:21:50.400
 Verify hide without deleting history
 
-00:20:38.400 --> 00:22:52.333
+00:21:50.400 --> 00:24:04.333
 Review final disablement in PR #59
 
-00:22:52.333 --> 00:23:10.267
+00:24:04.333 --> 00:24:22.267
 Disable and hide after demonstration
 
-00:23:10.267 --> 00:23:54.667
+00:24:22.267 --> 00:25:06.667
 Verify final registry release
 
-00:23:54.667 --> 00:25:54.800
+00:25:06.667 --> 00:27:06.800
 Navigate from the catalog to retained job results
 
-00:25:54.800 --> 00:26:12.800
+00:27:06.800 --> 00:27:24.800
 The maintenance loop
