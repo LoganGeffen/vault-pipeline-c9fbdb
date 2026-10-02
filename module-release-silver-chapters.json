@@ -1,0 +1,170 @@
+[
+  {
+    "start": 0,
+    "duration": 20.0,
+    "title": "Silver setup, then maintenance through merges",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-silver-20261002/segments/00.mp4",
+    "provenance": "Walkthrough scope \u00b7 October 2, 2026"
+  },
+  {
+    "start": 20.0,
+    "duration": 252.333333,
+    "title": "Find the branch, module folder and five files",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/02-branch-folder-files.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 272.33333300000004,
+    "duration": 80.4,
+    "title": "Set Silver in the initial module PR",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/backend-policy-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 352.733333,
+    "duration": 30.533333,
+    "title": "Local acceptance",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20260930/takes/11-local-acceptance.mp4",
+    "provenance": "Original recorded release action, September 30, 2026"
+  },
+  {
+    "start": 383.266666,
+    "duration": 176.8,
+    "title": "Navigate to PR #54 and inspect its diff and checks",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/pr-54-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 560.0666659999999,
+    "duration": 63.0,
+    "title": "Open an individual validation check",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/validation-check-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 623.0666659999999,
+    "duration": 35.266667,
+    "title": "Initial merge: recorded September 30",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20260930/takes/12-training-initial-merge.mp4",
+    "provenance": "Original recorded release action, September 30, 2026"
+  },
+  {
+    "start": 658.3333329999999,
+    "duration": 14.466667,
+    "title": "Verify the registry",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20260930/takes/16-live-registry-readback.mp4",
+    "provenance": "Original recorded release action, September 30, 2026"
+  },
+  {
+    "start": 672.8,
+    "duration": 14.0,
+    "title": "One-time manual deployment of the Silver policy",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20260930/takes/13-silver-backend-deploy.mp4",
+    "provenance": "Original recorded release action, September 30, 2026"
+  },
+  {
+    "start": 686.8,
+    "duration": 134.2,
+    "title": "Review enablement and visibility in PR #56",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/pr-56-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 821.0,
+    "duration": 16.6,
+    "title": "Enable and reveal: PR #56",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/01-enable-pr.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 837.6,
+    "duration": 43.0,
+    "title": "Review, merge and registry release",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/merge-enable.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 880.6,
+    "duration": 69.133333,
+    "title": "Find the PR #56 registry release in GitHub Actions",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/registry-workflow-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 949.733333,
+    "duration": 51.866667,
+    "title": "Live Silver run and CSV",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/run-silver.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 1001.6,
+    "duration": 22.0,
+    "title": "What changes through a manifest PR",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-silver-20261002/segments/14.mp4",
+    "provenance": "Walkthrough scope \u00b7 October 2, 2026"
+  },
+  {
+    "start": 1023.6,
+    "duration": 134.533333,
+    "title": "Review title, description and visibility in PR #57",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/pr-57-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 1158.133333,
+    "duration": 15.933333,
+    "title": "Maintain title, description and visibility",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/04-hide-pr.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 1174.066666,
+    "duration": 44.333333,
+    "title": "Release the maintenance change",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/merge-hide.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 1218.399999,
+    "duration": 20.0,
+    "title": "Verify hide without deleting history",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/hidden-proof.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 1238.399999,
+    "duration": 133.933333,
+    "title": "Review final disablement in PR #59",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/pr-59-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 1372.333332,
+    "duration": 17.933333,
+    "title": "Disable and hide after demonstration",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/07-close-pr.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 1390.2666649999999,
+    "duration": 44.4,
+    "title": "Verify final registry release",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-20261001/takes/merge-close.mp4",
+    "provenance": "Original recorded release action, October 1, 2026"
+  },
+  {
+    "start": 1434.666665,
+    "duration": 120.133333,
+    "title": "Navigate from the catalog to retained job results",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-revision-20261001/takes/vault-catalog-history-navigation.mp4",
+    "provenance": "New read-only navigation capture, October 1, 2026"
+  },
+  {
+    "start": 1554.799998,
+    "duration": 18.0,
+    "title": "The maintenance loop",
+    "source_take": "/home/logan/projects/ssc/artifacts/module-release-video-silver-20261002/segments/23.mp4",
+    "provenance": "Walkthrough scope \u00b7 October 2, 2026"
+  }
+]

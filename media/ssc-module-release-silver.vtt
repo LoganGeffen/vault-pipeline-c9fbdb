@@ -1,0 +1,265 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:20.000
+Set Silver in the initial PR. Merge and manually deploy the backend policy once. Then maintain name, description, visibility and enabled status through PRs. After each merge: wait for release-modules, then check the Vault.
+
+00:00:20.000 --> 00:00:43.240
+Open the branch selector. Choose the branch that contains the prepared Training Echo module.
+
+00:00:43.240 --> 00:00:54.354
+This is the original training branch. These prepared files are the starting point for the release.
+
+00:00:54.354 --> 00:01:10.479
+Open modules, then training_echo. Each module has its own folder.
+
+00:01:10.479 --> 00:01:18.482
+The folder contains the manifest, implementation, dependencies, fixture and output assertion.
+
+00:01:18.482 --> 00:01:26.563
+From the module folder, open manifest.yaml.
+
+00:01:26.563 --> 00:02:02.055
+The manifest declares the input, output and runtime. This prepared version starts disabled and hidden.
+
+00:02:02.055 --> 00:02:10.057
+From the module folder, open run.py.
+
+00:02:10.057 --> 00:02:45.773
+run.py reads the input text and writes training_echo.csv with the text and its character count.
+
+00:02:45.773 --> 00:02:53.770
+From the module folder, open requirements.txt.
+
+00:02:53.770 --> 00:03:10.668
+requirements.txt is empty: this training module uses only the Python standard library.
+
+00:03:10.668 --> 00:03:18.703
+From the module folder, open validation.json.
+
+00:03:18.703 --> 00:03:35.628
+validation.json supplies a known input and an invalid case for local acceptance.
+
+00:03:35.628 --> 00:03:43.635
+From the module folder, open assert_output.py.
+
+00:03:43.635 --> 00:04:19.324
+assert_output.py checks the actual CSV contents, including escaping and the character count.
+
+00:04:19.324 --> 00:04:32.300
+Return to the module folder. Next, validate these files before reviewing the pull request.
+
+00:04:32.333 --> 00:04:48.456
+Start in the training branch. Backend access rules live outside the module folder.
+
+00:04:48.456 --> 00:05:03.695
+Open supabase, then functions, then _shared.
+
+00:05:03.695 --> 00:05:13.772
+Open module-entitlements.ts to find the module-to-tier policy.
+
+00:05:13.772 --> 00:05:37.876
+In MODULE_ACCESS, set training_echo to "silver" alongside the new module files in the initial PR.
+
+00:05:37.876 --> 00:05:52.733
+The release owner deploys this Silver policy once after merge. Later manifest maintenance uses merges.
+
+00:05:52.733 --> 00:06:08.000
+Run the module acceptance command against the prepared files.
+
+00:06:08.000 --> 00:06:23.267
+A passing result checks the output CSV contents, escaping and character count.
+
+00:06:23.267 --> 00:06:53.407
+From the repository, open Pull requests. The completed demonstration PRs are in Closed.
+
+00:06:53.407 --> 00:07:05.636
+Open PR #54. Read the description and source branch, then inspect the changed files.
+
+00:07:05.636 --> 00:08:01.225
+Review the module implementation, manifest and acceptance files before release.
+
+00:08:01.225 --> 00:08:30.126
+Read the changed lines, then return to the conversation to inspect checks and the merge record.
+
+00:08:30.126 --> 00:09:07.119
+Inspect the completed checks for this PR before relying on the merge.
+
+00:09:07.119 --> 00:09:20.067
+Next, watch the recorded release and verify that its outcome matches this reviewed change.
+
+00:09:20.067 --> 00:09:41.090
+Open Checks, then expand module-ci to see its individual jobs.
+
+00:09:41.090 --> 00:09:50.972
+Select validate to open the recorded job and its conclusion.
+
+00:09:50.972 --> 00:10:23.067
+Inspect the validation result and its logged steps for this exact PR head.
+
+00:10:23.067 --> 00:10:40.700
+Original recording: review the passing checks, then merge the prepared module PR.
+
+00:10:40.700 --> 00:10:58.333
+The initial released manifest is disabled and hidden.
+
+00:10:58.333 --> 00:11:05.567
+Original registry readback: locate the released module and inspect its flags.
+
+00:11:05.567 --> 00:11:12.800
+Both Training Echo and Coptis are held disabled and hidden here.
+
+00:11:12.800 --> 00:11:19.800
+Recorded command output: the release owner manually deploys submit-job with the reviewed Silver policy.
+
+00:11:19.800 --> 00:11:26.800
+This is the one-time backend setup for this walkthrough. The following maintenance edits use manifest PRs.
+
+00:11:26.800 --> 00:11:56.934
+From the repository, open Pull requests. The completed demonstration PRs are in Closed.
+
+00:11:56.934 --> 00:12:08.954
+Open PR #56. Read the description and source branch, then inspect the changed files.
+
+00:12:08.954 --> 00:12:33.919
+enabled allows new jobs. ui.visible controls whether the catalog offers the module.
+
+00:12:33.919 --> 00:12:50.852
+Read the changed lines, then return to the conversation to inspect checks and the merge record.
+
+00:12:50.852 --> 00:13:27.910
+Inspect the completed checks for this PR before relying on the merge.
+
+00:13:27.910 --> 00:13:41.000
+Next, watch the recorded release and verify that its outcome matches this reviewed change.
+
+00:13:41.000 --> 00:13:49.300
+Original recorded change: enable the module and make it visible through PR #56.
+
+00:13:49.300 --> 00:13:57.600
+The reviewed manifest is now ready for its registry release.
+
+00:13:57.600 --> 00:14:19.100
+Original recording: merge PR #56 after its checks pass.
+
+00:14:19.100 --> 00:14:40.600
+Verify that the registry workflow checked out the intended merge commit.
+
+00:14:40.600 --> 00:15:06.733
+From the repository, open Actions to inspect the automatic registry release.
+
+00:15:06.733 --> 00:15:19.834
+Choose the run for the intended merge. Its commit must match the change you meant to release.
+
+00:15:19.834 --> 00:15:49.700
+This completed run projects the manifest into the registry. It does not deploy frontend or function code.
+
+00:15:49.733 --> 00:15:56.733
+Original Silver test: Training Echo is enabled and visible in the catalog.
+
+00:15:56.733 --> 00:16:02.733
+Enter the test text and select Run. The following submission is the original recorded action.
+
+00:16:02.733 --> 00:16:24.733
+The accepted job is queued and executed. Wait for its status to change.
+
+00:16:24.733 --> 00:16:29.733
+The job has succeeded and its result is available.
+
+00:16:29.733 --> 00:16:41.600
+The verified private CSV contains the exact input text and its character count.
+
+00:16:41.600 --> 00:17:03.600
+Name and description: edit title and ui.description together. Keep enabled and ui.visible true to see the new text in the catalog. Visibility: ui.visible controls discovery. Enabled: enabled controls new jobs. The recorded PR below also hides the module; it demonstrates that effect.
+
+00:17:03.600 --> 00:17:33.973
+From the repository, open Pull requests. The completed demonstration PRs are in Closed.
+
+00:17:33.973 --> 00:17:45.981
+Open PR #57. Read the description and source branch, then inspect the changed files.
+
+00:17:45.981 --> 00:18:10.973
+This PR changes the title, description and visibility together. Hiding also removes the updated catalog card.
+
+00:18:10.973 --> 00:18:27.913
+Read the changed lines, then return to the conversation to inspect checks and the merge record.
+
+00:18:27.913 --> 00:19:05.012
+Inspect the completed checks for this PR before relying on the merge.
+
+00:19:05.012 --> 00:19:18.100
+To see a new name and description in the catalog, keep enabled and ui.visible true when releasing those edits.
+
+00:19:18.133 --> 00:19:26.100
+Original recorded change: update the title and description, then hide catalog discovery.
+
+00:19:26.100 --> 00:19:34.067
+These manifest fields are released through PR #57.
+
+00:19:34.067 --> 00:19:56.233
+Original recording: merge PR #57 and verify its registry release.
+
+00:19:56.233 --> 00:20:18.400
+Wait for release-modules to succeed, then refresh the Vault. Manifest-only maintenance needs no function deployment.
+
+00:20:18.400 --> 00:20:28.400
+Original readback: the module is no longer offered in the catalog.
+
+00:20:28.400 --> 00:20:38.400
+This verifies hiding, not the new catalog text. Existing jobs and results remain available in Runs.
+
+00:20:38.400 --> 00:21:08.459
+From the repository, open Pull requests. The completed demonstration PRs are in Closed.
+
+00:21:08.459 --> 00:21:20.515
+Open PR #59. Read the description and source branch, then inspect the changed files.
+
+00:21:20.515 --> 00:21:45.608
+Set enabled to false to stop new jobs, and ui.visible to false to hide catalog discovery.
+
+00:21:45.608 --> 00:22:02.479
+Read the changed lines, then return to the conversation to inspect checks and the merge record.
+
+00:22:02.479 --> 00:22:39.415
+Inspect the completed checks for this PR before relying on the merge.
+
+00:22:39.415 --> 00:22:52.300
+Next, watch the recorded release and verify that its outcome matches this reviewed change.
+
+00:22:52.333 --> 00:23:01.300
+Original recorded change: disable the module and hide it through PR #59.
+
+00:23:01.300 --> 00:23:10.267
+Disabling stops new jobs; hiding removes catalog discovery.
+
+00:23:10.267 --> 00:23:32.467
+Original recording: verify the final registry release after PR #59.
+
+00:23:32.467 --> 00:23:54.667
+Training Echo and Coptis are both disabled and hidden.
+
+00:23:54.667 --> 00:24:11.809
+Recorded after cleanup: open the catalog and retained results. The account has been restored to Platinum.
+
+00:24:11.809 --> 00:24:25.851
+Open Skill Catalog from the sidebar. Training Echo is hidden after the final disable.
+
+00:24:25.851 --> 00:24:44.837
+The catalog contains the currently available skills. Historical results remain in Runs.
+
+00:24:44.837 --> 00:24:58.977
+Click Runs. The successful training_echo entry from the Silver test is still retained.
+
+00:24:58.977 --> 00:25:10.913
+Open VISUALIZE on that run to inspect its saved output.
+
+00:25:10.913 --> 00:25:25.910
+Table shows the original test input and its character count: 36.
+
+00:25:25.910 --> 00:25:40.882
+Raw exposes the saved CSV. This is the original result, not a new module run.
+
+00:25:40.882 --> 00:25:54.767
+Close returns to Runs. The disabled and hidden module retains this earlier Silver test result.
+
+00:25:54.800 --> 00:26:12.800
+Edit the manifest → open a PR → review checks → merge. Wait for release-modules to succeed, then verify the Vault. Silver was set during the initial setup; later tier changes are outside this cut. Recorded September 30–October 1. Edited excerpts; no production actions replayed.
